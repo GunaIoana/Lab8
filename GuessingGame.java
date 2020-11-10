@@ -7,11 +7,12 @@ public class GuessingGame implements ActionListener {
   JTextField userGuess;
   JButton guessButton, playAgainButton;
   JLabel enterGuessLabel, highLowLabel, lastGuessLabel;
-  Random r = new Random();
-  int randomNum = r.nextInt(100)+1;
+  Random r;
+  int randomNum;
 
   GuessingGame() {
-
+    r = new Random();
+    randomNum = r.nextInt(100)+1;
     JFrame frame = new JFrame("Guessing Game");
     frame.setLayout(new FlowLayout());
     frame.setSize(240,120);
@@ -59,9 +60,10 @@ public class GuessingGame implements ActionListener {
     else if (ae.getActionCommand().equals("Play Again")) {
       int randomNum = r.nextInt(100) + 1;
 
-      userGuess.setText("");
+      enterGuessLabel.setText("Enter your guess: ");
       highLowLabel.setText("");
       lastGuessLabel.setText("");
+      userGuess.setText("");
     }
     else {
       highLowLabel.setText("You pressed Enter. Please press the Guess Button.");
